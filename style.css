@@ -1,0 +1,469 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 95vh;
+  background: rgba(255, 255, 255, 0.185);
+  border-bottom-left-radius: 60px;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 50px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 15px;
+  font-weight: 500;
+  font-size: 20px;
+  transition: 0,5s;
+}
+
+.nav a:hover {
+  border: 1px solid white;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("pexels-erik-heintare-2086386660-29298710.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 90px;
+  margin: 0;
+}
+
+.hero h2 {
+  font-size: 50px;
+  margin: 10px 0;
+}
+
+.hero p {
+  margin: 10px 0 20px;
+}
+
+.btn {
+  background: #00bfff;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: rgba(0, 247, 255, 0.35) 0px 5px 15px;
+}
+
+.btn:hover {
+  background: #0099cc;
+}
+
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  font-size: 28px;
+  color: white;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00bfff; /* muda a cor ao passar o mouse */
+}
+
+.seta {
+  position: absolute;
+  bottom: 30px; /* distancia da parte de baixo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: translateX(-50%) rotate(-45deg);
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+}
+
+/* animação "pulsando" */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) rotate(-45deg) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) rotate(-45deg) translateY(8px);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-45deg) translateY(4px);
+  }
+}
+
+
+
+.apartamentos {
+  padding: 60px 8%;
+  background: #ddd; /* pode trocar pelo degrade se quiser */
+}
+
+.apartamentos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.apartamentos-header h1 {
+  font-size: 60px;
+  color: #333;
+}
+
+.apartamentos-header p {
+  font-size: 20px;
+  color: #333;
+}
+
+.setas button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.setas button:hover {
+  background: #00bfff;
+  border-color: #00bfff;
+}
+
+.cards-wrapper {
+  overflow: hidden; /* só mostra os cards dentro do limite */
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 280px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 15px 0 10px;
+  color: #333;
+}
+
+.card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.card .valor {
+  font-weight: bold;
+  color: #00bfff;
+}
+
+.card .btn {
+  display: inline-block;
+  margin: 15px 0 20px;
+  padding: 10px 20px;
+  background: #00bfff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.card .btn:hover {
+  background: #0099cc;
+  scale: 1.1;
+}
+
+
+.sobre {
+  position: relative; /* necessário para o overlay funcionar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  gap: 40px;
+  background: url("pexels-heloisavecchio-10446865.jpg") center/cover no-repeat;
+  color: white;
+}
+
+/* camada de overlay escuro + blur */
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45); /* escurece */
+  backdrop-filter: blur(3px);   /* aplica blur */
+  z-index: 1;
+}
+
+/* garante que o conteúdo fique acima do overlay */
+.sobre > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.sobre-texto {
+  flex: 1;
+  color: #ffffff;
+}
+
+.sobre-texto h1 {
+  font-size: 32px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.sobre-texto h1 span {
+  color: #00bfff; /* azul destaque */
+  font-weight: bold;
+}
+
+.sobre-texto p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.sobre-texto .destaque {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+.sobre-texto .btn {
+  background: #00bfff;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0px 4px 12px rgba(0,191,255,0.4);
+  transition: 0.3s;
+}
+
+.sobre-texto .btn:hover {
+  background: #0099cc;
+}
+
+.sobre-foto {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-foto img {
+  width: 320px;
+  border-radius: 0 50% 0 50%; /* canto arredondado como na imagem */
+  object-fit: cover;
+}
+
+.footer {
+  background: linear-gradient(180deg, #0d6d85, #0a4960);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 10%;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 20px;
+}
+.footer-col a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer h2 i {
+  margin-left: 8px;
+}
+
+.footer p {
+  margin: 5px 0;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.footer h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer h3:hover {
+  color: #00bfff;
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.footer .social-icons a {
+  font-size: 24px;
+  color: white;
+  transition: 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: #00bfff;
+}
+
+.footer .copy {
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.footer .telefone {
+  font-size: 14px;
+  margin-top: 8px;
+}
+/* telas até 1024px (tablet) */
+@media (max-width: 1024px) {
+  .header {
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .apartamentos-header h1 {
+    font-size: 40px;
+  }
+
+  .apartamentos-header p {
+    font-size: 16px;
+  }
+
+  .sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-foto img {
+    width: 250px;
+    border-radius: 20px;
+  }
+}
+
+/* telas até 768px (celulares grandes) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .nav a {
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .cards {
+    justify-content: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+/* telas até 480px (celulares pequenos) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}

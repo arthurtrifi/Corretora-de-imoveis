@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Andreia Melo</title>
+  <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+
+
+  <!-- FORMULÁRIO -->
+  <section class="contato" id="contato">
+  <div class="contato-container">
+    <h1>Entre em contato</h1>
+    <p>Preencha as informações abaixo e entrarei em contato com você o mais rápido possível.</p>
+
+    <form action="https://formspree.io/f/mnqekjkj" method="POST" class="formulario">
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+
+      <div class="campo">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(88) 99999-9999" required>
+      </div>
+
+      <div class="campo">
+        <label for="valor">Valor aproximado que deseja investir</label>
+        <input type="number" id="valor" name="valor" placeholder="Ex: 250000" required>
+      </div>
+
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- FOOTER igual ao principal -->
+  <footer class="footer">
+    <div class="footer-col">
+      <h2>Andreia Melo</h2>
+      <p>Sempre encontrando os melhores lares para meus clientes</p>
+      <p class="copy">©2025 desenvolvido por Arthur</p>
+    </div>
+
+    <div class="footer-col">
+      <a href="index.html"><h3>Home</h3></a>
+      <a href="index.html"><h3>Sobre</h3></a>
+      <a href="index.html"><h3>Contato</h3></a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Social</h3>
+      <div class="social-icons">
+        <a href="https://wa.me/558881211494"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/andreia_corretoradeimoveis/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/ernandes1212/"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+      <p class="telefone">+55 88 9 97533958</p>
+    </div>
+  </footer>
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Script -->
+<script>
+  document.getElementById("contato").addEventListener("submit", function(e) {
+    e.preventDefault(); // evita recarregar a página
+
+    // pega os valores
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const valor = document.getElementById("valor").value;
+
+    // número de destino (seu WhatsApp)
+    const numero = "558881211494"; 
+
+    // monta a mensagem
+    const mensagem = `Olá, meu nome é *${nome}*.
+E-mail: ${email}
+Telefone: ${telefone}
+Quero investir aproximadamente: R$ ${valor} em um imovel`;
+
+    // abre o WhatsApp
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
+  });
+</script>
+</body>
+</html>
